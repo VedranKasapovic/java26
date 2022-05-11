@@ -10,7 +10,7 @@ create table odgojnaskupina(
     sifra int not null primary key auto_increment,
     brojskupine int not null,
     brojdjece int,
-    dobdjece decimal(2,2),
+    dobdjece int,
     odgajateljica int not null
 );
 
@@ -41,7 +41,8 @@ create table odgajateljica(
 create table roditelj(
     sifra int not null primary key auto_increment,
     brojugovora varchar(20),
-    telefon varchar(20)
+    telefon varchar(20),
+    osoba int not null
 );
 
 # vanjski ključevi
@@ -51,4 +52,29 @@ alter table dijete add foreign key (roditelj) references roditelj(sifra);
 alter table dijete add foreign key (odgojnaskupina) references odgojnaskupina(sifra);
 alter table dijete add foreign key (osoba) references osoba(sifra);
 alter table odgajateljica add foreign key (osoba) references osoba(sifra);
+alter table roditelj add foreign key (osoba) references osoba(sifra);
+
+# unos podataka
+insert into osoba (ime,prezime,dob,spol)
+values ('Marica','Marić',35,'žensko');
+
+insert into osoba (ime,prezime,dob,spol)
+values ('Ivan','Ivić',5,'muško');
+
+insert into osoba (ime,prezime,dob,spol)
+values ('Pero','Perić',30,'muško');
+
+insert into roditelj (brojugovora,telefon,osoba)
+values ('343-23/2','092/2343 464',3);
+
+insert into odgajateljica (oib,telefon,strucnasprema,iban,osoba)
+values (12345678911,'091/1234 567','bac','HR2354554665654767',1);
+
+insert into odgojnaskupina (brojskupine,brojdjece,dobdjece,odgajateljica)
+values (1,23,4,1);
+
+insert into dijete (roditelj,odgojnaskupina,osoba)
+values (1,1,2);
+
+
 
