@@ -1,6 +1,6 @@
 # hash je komentar
 # Sljedeću liniju bez početnog hash znaka izvesti u cmd
-# C:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\Veky\Documents\GitHub\java26\djecjivrtic.sql
+# C:\xampp\mysql\bin\mysql -uroot --default_character_set=utf8 < C:\Users\Veky\Documents\GitHub\java26\zavrsni\djecjivrtic\djecjivrtic.sql
 
 drop database if exists djecjivrtic;
 create database djecjivrtic;
