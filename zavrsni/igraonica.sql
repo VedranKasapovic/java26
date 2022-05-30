@@ -10,6 +10,12 @@ create table dijete(
     ime varchar(20) not null,
     prezime varchar(50) not null,
     datumrodjenja datetime not null,
+    posjeta int not null
+);
+
+create table posjeta(
+    sifra int not null primary key auto_increment,
+    dijete int not null,
     ormaric int null,
     placeno boolean,
     placenodo datetime,
@@ -64,4 +70,6 @@ alter table dijeteodgovorni add foreign key (dijete) references dijete(sifra);
 alter table dijeteodgovorni add foreign key (odgovornaosoba) references odgovornaosoba(sifra);
 alter table igraonica add foreign key (dijete) references dijete(sifra);
 alter table djelatnica add foreign key (igraonica) references igraonica(sifra);
-alter table dijete add foreign key (rodjendan) references rodjendan(sifra);
+alter table dijete add foreign key (posjeta) references posjeta(sifra);
+alter table posjeta add foreign key (rodjendan) references rodjendan(sifra);
+alter table rodjendan add foreign key (odgovornaosoba) references odgovornaosoba(sifra);
