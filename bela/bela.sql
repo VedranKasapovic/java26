@@ -46,10 +46,40 @@ create table lokacija(
     naziv varchar(50)
 );
 
+# ključevi
 alter table mjesanje add foreign key (partija) references partija(id);
 alter table partija_igrac add foreign key (partija) references partija(id);
 alter table partija_igrac add foreign key (igrac) references igrac(id);
 alter table partija add foreign key (lokacija) references lokacija(id);
 alter table partija add foreign key (unosi) references igrac(id);
 
+# unosi
+INSERT INTO igrac
+(ime, prezime, spol)
+VALUES('Pero','Perić', 1),
+('Ivan','Ivić', 1),
+('Pero','Perić', 1),
+('Marko','Marić', 1),
+('Antun','Antunović', 1),
+('Ivana','Ivić', 2),
+('Ana','Anić', 2),
+('Marija','Marić', 2),
+('Petra','Perić', 2);
 
+
+INSERT INTO lokacija
+(latitude, longitude, naziv)
+VALUES(45.554962, 18.695514, 'Osijek');
+
+INSERT INTO partija
+(vrsta, dokolikoseigra, lokacija, unosi)
+VALUES('301', 301, 1, 1),('501',501,1,2);
+
+INSERT INTO mjesanje
+(vrsta, belot, datumunosa, stiglja, partija)
+VALUES('301', 0, '2022-06-08', 0, 1);
+
+
+INSERT INTO partija_igrac
+(partija, igrac)
+VALUES(1, 1),(1,2),(1,3),(1,4),(2,1),(2,2),(2,3),(2,4);
