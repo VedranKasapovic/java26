@@ -41,8 +41,8 @@ create table igrac(
 
 create table lokacija(
     id int not null primary key auto_increment,
-    latitude decimal(9,8) not null,
-    longitude decimal(9,8) not null,
+    latitude char(12) not null,
+    longitude char(12) not null,
     naziv varchar(50)
 );
 
