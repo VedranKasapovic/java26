@@ -33,3 +33,4 @@ java/.metadata/.plugins/org.eclipse.jdt.core/javaLikeNames.txt
 java/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache
 java/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml
 *.xml
+java/.metadata/.plugins/org.eclipse.core.resources/.root/3.tree
