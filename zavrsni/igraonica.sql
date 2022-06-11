@@ -23,7 +23,9 @@ create table posjeta(
     vrijemedolaska datetime not null,
     vrijemeodlaska datetime null,
     roditeljskapratnja boolean,
-    rodjendan int null
+    gratis boolean,
+    rodjendan int null,
+    djelatnica int not null
 );
 
 create table dijeteodgovorni(
@@ -40,11 +42,6 @@ create table odgovornaosoba(
     email varchar(50) null
 );
 
-create table igraonica(
-    sifra int not null primary key auto_increment,
-    cijena decimal(18,2) not null,
-    grad varchar(20) not null
-);
 
 create table djelatnica (
     sifra int not null primary key auto_increment,
@@ -68,8 +65,7 @@ create table rodjendan(
 
 alter table dijeteodgovorni add foreign key (dijete) references dijete(sifra);
 alter table dijeteodgovorni add foreign key (odgovornaosoba) references odgovornaosoba(sifra);
-alter table dijete add foreign key (igraonica) references igraonica(sifra);
-alter table djelatnica add foreign key (igraonica) references igraonica(sifra);
+alter table posjeta add foreign key (djelatnica) references djelatnica(sifra);
 alter table dijete add foreign key (posjeta) references posjeta(sifra);
 alter table posjeta add foreign key (rodjendan) references rodjendan(sifra);
 alter table rodjendan add foreign key (odgovornaosoba) references odgovornaosoba(sifra);
